@@ -14,9 +14,11 @@
 
 ## Variable Setup ##
 configFile="/etc/nagios/nrpe.cfg"
-configIP=$( grep -o -P '(?<=allowed_hosts=)[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' $configFile )
-
 hostNagiosHostname="your.domain.com"
+
+
+## Shouldn't have to change these variables ##
+configIP=$( grep -o -P '(?<=allowed_hosts=)[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' $configFile )
 hostNagiosIP=$( host $hostNagiosHostname | awk '{ print $4 }' )
 
 
