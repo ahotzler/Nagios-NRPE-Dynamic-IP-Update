@@ -8,17 +8,17 @@ If your host Nagios system is behind a dynamic DHCP IP, and you use
 NRPE to monitor remote Nagios systems, then this script should be
 able to help you out. 
 
-Designed to check your host DHCP IP, check it in the client NRPE 
-config file, and update the config file if an update is found. Once
-Once the config file is updated, the NRPE service is restarted. 
+Designed to check your Nagios host DHCP IP, and compare it to the client 
+NRPE config file. A config file update will occur if the IP values do not
+match. Once the config file is updated, the NRPE service is restarted. 
 
 ### INSTALLATION
 
 Drop into a directory of your choosing. 
 chmod +x updateNRPE.sh
-Edit the file variables to match your setup (host Nagios hostname)
-./updateNRPE to run it adhoc
-Add it to cron to schedule update checks
+Edit the file variables to match your setup (host Nagios hostname).
+./updateNRPE to run it adhoc.
+Add it to cron to schedule update checks.
 	
 	
 ### DEBUG INFO
