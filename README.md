@@ -1,4 +1,4 @@
-nagios-nrpe-dyanmic-ip-update
+nagios-nrpe-dynamic-ip-update
 =============
 
 (c) drsprite <drsprite@github.com> - http://github.com/drsprite
@@ -32,5 +32,5 @@ by simply uncommenting the echo's within the scripts.
 
 ### AVAILABILITY
 
-This script can be found at https://github.com/drsprite/nagios-nrpe-dyanmic-ip-update
+This script can be found at https://github.com/drsprite/nagios-nrpe-dynamic-ip-update
 
