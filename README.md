@@ -12,6 +12,10 @@ Designed to check your Nagios host DHCP IP, and compare it to the client
 NRPE config file. A config file update will occur if the IP values do not
 match. Once the config file is updated, the NRPE service is restarted. 
 
+If the config file allowed_hosts IP and the Nagios host IP match, the script 
+exits. No config file update nor service restart is performed.
+
+
 ### INSTALLATION
 
 Drop into a directory of your choosing. 
