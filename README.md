@@ -1,7 +1,7 @@
 nagios-nrpe-dynamic-ip-update
 =============
 
-(c) drsprite <drsprite@github.com> - http://github.com/drsprite
+(c) poblabs <poblabs@github.com> - http://github.com/poblabs
 Licensed under the GNU GPL 2.0 or later.
 
 If your host Nagios system is behind a dynamic DHCP IP, and you use
@@ -29,8 +29,4 @@ Add it to cron to schedule update checks.
 
 If for some reason things aren't working, you can check the variables being passed to Nagios 
 by simply uncommenting the echo's within the scripts. 
-
-### AVAILABILITY
-
-This script can be found at https://github.com/drsprite/nagios-nrpe-dynamic-ip-update
 
