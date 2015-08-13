@@ -1,4 +1,4 @@
-nagios-nrpe-dynamic-ip-update
+Nagios NRPE Dynamic IP Update
 =============
 
 (c) poblabs <poblabs@github.com> - http://github.com/poblabs
