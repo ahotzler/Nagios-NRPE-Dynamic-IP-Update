@@ -8,7 +8,9 @@
 # Feel free to modify, change and do whatever you want.
 #
 # Created: September 29, 2013
-# Author: drsprite
+# Author: drspritei
+#
+# Updated: 06.05.2019 Andre Hotzlei
 #
 # ---------------------------------------------------------------------
 
@@ -22,11 +24,17 @@ configIP=$( grep -o -P '(?<=allowed_hosts=)[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[
 hostNagiosIP=$( host $hostNagiosHostname | awk '{ print $4 }' )
 
 
+## Shouldn't have to change these variables ##
+configIP=$( grep -o -P '(?<=allowed_hosts=)[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' $configFile )
+#hostNagiosIP=$( host $hostNagiosHostname | awk '{ print $4 }' )
+hostNagiosIP=$( dig $hostNagiosHostname  |  egrep "IN.*A" | egrep -v "^;"| awk '{ print $5 }' )
+
+
 ## Core ##
-if [ "$configIP" == "$hostNagiosIP" ]; then
+if [ "$configIP" = "$hostNagiosIP" ]; then
         echo "Config IP $configIP matches $hostNagiosHostname IP of $hostNagiosIP. No changes needed."
 else
         echo "Config IP $configIP is different than $hostNagiosHostname IP. Changing config IP to $hostNagiosIP"
-        sed -i -r "s/allowed_hosts=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/allowed_hosts=$hostNagiosIP/g" $configFile
-        service nrpe restart
+        sed -ri  's/allowed_hosts=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/allowed_hosts='$hostNagiosIP'/g' $configFile
+        systemctl restart nagios-nrpe-server
 fi
